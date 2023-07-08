@@ -232,6 +232,7 @@ var scroll = new SmoothScroll('a[href*="#"]', {
 	speed: 1000,
 	speedAsDuration: true
 });
+
 function animateTestimonials() {
     var testimonialElements = document.querySelectorAll('.animated-testimonial');
     
@@ -250,11 +251,6 @@ function animateTestimonials() {
         }
     }
 }
-
-window.addEventListener('scroll', animateTestimonials);
-window.addEventListener('resize', animateTestimonials);
-
-
 
 window.addEventListener('scroll', animateTestimonials);
 window.addEventListener('resize', animateTestimonials);
