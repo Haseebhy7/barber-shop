@@ -233,20 +233,28 @@ var scroll = new SmoothScroll('a[href*="#"]', {
 	speedAsDuration: true
 });
 
-var testimonialSection = document.getElementById('testimonial');
-        var windowHeight = window.innerHeight;
-
-        function animateTestimonials() {
-            var testimonialElements = document.querySelectorAll('.animated-testimonial');
-
-            for (var i = 0; i < testimonialElements.length; i++) {
-                if (testimonialElements[i].getBoundingClientRect().top < windowHeight) {
-                    testimonialElements[i].classList.add('animate');
-                }
-            }
+function animateTestimonials() {
+    var testimonialElements = document.querySelectorAll('.animated-testimonial');
+    
+    for (var i = 0; i < testimonialElements.length; i++) {
+        var bounding = testimonialElements[i].getBoundingClientRect();
+        
+        if (
+            bounding.top >= 0 &&
+            bounding.left >= 0 &&
+            bounding.right <= (window.innerWidth || document.documentElement.clientWidth) &&
+            bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+        ) {
+            testimonialElements[i].classList.add('animate');
+        } else {
+            testimonialElements[i].classList.remove('animate');
         }
+    }
+}
 
-        window.addEventListener('scroll', animateTestimonials);
+window.addEventListener('scroll', animateTestimonials);
+window.addEventListener('resize', animateTestimonials);
+
 
 
 </script>
