@@ -472,50 +472,23 @@ hr {
   }
 }
 
-@keyframes slideInFromLeft {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideInFromRight {
-    0% {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideInFromBottom {
-    0% {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-.testimonial-col.animated-testimonial:nth-child(odd) {
-    animation: slideInFromLeft 3s ease forwards;
-}
-
-.testimonial-col.animated-testimonial:nth-child(even) {
-    animation: slideInFromRight 3s ease forwards;
-}
-
-.testimonial-col.animated-testimonial:nth-child(3n) {
-    animation: slideInFromBottom 3s ease forwards;
-}
-
+.testimonial-col {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease, transform 1s ease, box-shadow 0.8s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .testimonial-col.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .testimonial-col:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+  }
+  
 .features-img {
     position: relative;
     overflow: hidden;
